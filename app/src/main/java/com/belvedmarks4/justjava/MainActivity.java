@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Class variable for quantity
     public int quantity = 0;
+    public int pricePerCoffee = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public void quantityAdd(View view) {
         quantity += 1;
         display(quantity);
+        displayPrice(quantity);
     }
 
     public void quantitySubtract(View view) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             quantity -= 1;
         }
         display(quantity);
+        displayPrice(quantity);
     }
 
     private void display(int number) {
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number*pricePerCoffee));
     }
 
 }
